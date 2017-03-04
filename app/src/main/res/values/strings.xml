@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">QuizMadrid</string>
+    <string name="Question1">Who was the King who moved his court from Toledo to Madrid?:</string>
+    <string name="Question2">Francis I of France was imprisoned in Madrid. Do you know where?:</string>
+    <string name="Question3">The Second of May 1808 is also known as:</string>
+    <string name="Question4">When did Joseph Bonaparte become King of Spain?: </string>
+    <string name="Question5">The Madrid\'s first underground railway line was opened in:</string>
+    <string name="Question6">Choose typical dishes from Madrid?:</string>
+    <string name="Answer1_a">Felipe II</string>
+    <string name="Answer1_b">Felipe III</string>
+    <string name="Answer1_c">Carlos I</string>
+    <string name="Answer1_d">Carlos III</string>
+    <string name="Answer2_a">Royal Palace</string>
+    <string name="Answer2_b">Casa de la Villa</string>
+    <string name="Answer2_c">Torre de los Lujanes</string>
+    <string name="Question3Hint">Different name for this historical rebellion</string>
+    <string name="Question4Hint">Year</string>
+    <string name="Question5Hint">Year</string>
+    <string name="Answer6_a">Fabada</string>
+    <string name="Answer6_b">Callos</string>
+    <string name="Answer6_c">Cocido</string>
+    <string name="Answer6_d">Pan con tomate</string>
+    <string name="Question7">Have you enjoyed this quiz?</string>
+    <string name="Answer7_a">Yes</string>
+    <string name="Answer7_b">No</string>
+    <string name="QuestionHint">Your answer</string>
+    <string name="Reset">Reset</string>
+    <string name="Submit">Submit</string>
+
+
+</resources>
