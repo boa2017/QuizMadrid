@@ -26,6 +26,5 @@
     <string name="QuestionHint">Your answer</string>
     <string name="Reset">Reset</string>
     <string name="Submit">Submit</string>
-    <string name="web">Your Bonus</string>
-
+    <string name="Bonus">Enjoy Madrid!</string>
 </resources>

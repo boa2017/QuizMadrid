@@ -1,10 +1,10 @@
 package com.example.android.quizmadrid;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -13,9 +13,13 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.example.android.quizmadrid.R.id.webView;
+
+
 public class MainActivity extends AppCompatActivity {
 
     private int score = 0;
+    private WebView myWebView;
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -27,18 +31,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         /**Loads old Points*/
         if (savedInstanceState != null) {
             score = savedInstanceState.getInt("SCORE");
         }
-    }
 
-        public void onClickWeb(View view) {
-            String url = "https://www.youtube.com/watch?v=XMjpaWnXJoM";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(url));
-            startActivity(i);
-            }
+        WebView myWebView = (WebView) this.findViewById(webView);
+        String playVideo= "<html><body><iframe class=\"youtube-player\" type=\"text/html\" width=\"400\" height=\"360\" " +
+        "src=\"https://www.youtube.com/embed/XMjpaWnXJoM\" frameborder=\"0\"></body></html>";
+        myWebView.getSettings().setJavaScriptEnabled(true);
+        myWebView.loadData(playVideo, "text/html", "utf-8");
+
+    }
 
     public void firstQuestion() {
         RadioButton rightAnswer1 = (RadioButton) findViewById(R.id.radioButton1);
@@ -61,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText edt = (EditText) findViewById(R.id.editableAnswer1);
         String editableAnswer1 = edt.getText().toString();
-        //compare answers
+        //compare answersº  º
         if(editableAnswer1.equalsIgnoreCase("The Charge of the Mamelukes")){
             score= score+1 ;
         }
