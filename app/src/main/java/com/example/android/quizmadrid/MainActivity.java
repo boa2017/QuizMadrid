@@ -1,5 +1,7 @@
 package com.example.android.quizmadrid;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -29,8 +31,14 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             score = savedInstanceState.getInt("SCORE");
         }
-
     }
+
+        public void onClickWeb(View view) {
+            String url = "https://www.youtube.com/watch?v=XMjpaWnXJoM";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+            }
 
     public void firstQuestion() {
         RadioButton rightAnswer1 = (RadioButton) findViewById(R.id.radioButton1);
@@ -38,17 +46,14 @@ public class MainActivity extends AppCompatActivity {
             score = score + 1;
 
         }
-
     }
-
-    public void secondQuestion() {
+         public void secondQuestion() {
         RadioButton rightAnswer1 = (RadioButton) findViewById(R.id.radioButton2);
         if (rightAnswer1.isChecked()) {
             score = score + 1;
 
         }
     }
-
 
     public void thirdQuestion() {
 
@@ -152,6 +157,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void resetScore (View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
         score= 0;
 
         EditText et1=(EditText) findViewById(R.id.editableAnswer1);
