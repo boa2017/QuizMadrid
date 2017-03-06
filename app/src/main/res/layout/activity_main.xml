@@ -112,22 +112,22 @@
                 android:text="@string/Question6" />
 
             <CheckBox
-                android:id="@+id/Fabada"
+                android:id="@+id/checkb1"
                 style="@style/RadioStyle"
                 android:text="@string/Answer6_a" />
 
             <CheckBox
-                android:id="@+id/Callos"
+                android:id="@+id/checkb2"
                 style="@style/RadioStyle"
                 android:text="@string/Answer6_b" />
 
             <CheckBox
-                android:id="@+id/Cocido"
+                android:id="@+id/checkb3"
                 style="@style/RadioStyle"
                 android:text="@string/Answer6_c" />
 
             <CheckBox
-                android:id="@+id/Pan_tomate"
+                android:id="@+id/checkb4"
                 style="@style/RadioStyle"
                 android:text="@string/Answer6_d" />
 
@@ -176,7 +176,7 @@
                 android:layout_height="match_parent">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/submitButton"
                     style="@style/ButtonStyle"
                     android:onClick="getScore"
                     android:text="@string/Submit" />
@@ -184,14 +184,14 @@
                 <Button
                     android:id="@+id/reset"
                     style="@style/ButtonStyle"
-                    android:layout_toRightOf="@id/button"
+                    android:layout_toRightOf="@id/submitButton"
                     android:onClick="resetScore"
                     android:text="@string/Reset" />
 
                 <TextView
                     android:id="@+id/display_result"
                     style="@style/Result"
-                    android:layout_below="@id/button"
+                    android:layout_below="@id/submitButton"
                     android:layout_gravity="center"
                     android:text="" />
 

@@ -38,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         WebView myWebView = (WebView) this.findViewById(webView);
-        String playVideo= "<html><body><iframe class=\"youtube-player\" type=\"text/html\" width=\"400\" height=\"360\" " +
-        "src=\"https://www.youtube.com/embed/XMjpaWnXJoM\" frameborder=\"0\"></body></html>";
+        String playVideo= "<html><body><iframe class=\"youtube-player\" type=\"text/html\" width=\"400\" height=\"360\" src=\"https://www.youtube.com/embed/XMjpaWnXJoM\" frameborder=\"0\"></body></html>";
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.loadData(playVideo, "text/html", "utf-8");
 
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-         public void secondQuestion() {
+    public void secondQuestion() {
         RadioButton rightAnswer1 = (RadioButton) findViewById(R.id.radioButton2);
         if (rightAnswer1.isChecked()) {
             score = score + 1;
@@ -97,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void sixthQuestion() {
         //choose two answers
-        CheckBox chk2 = (CheckBox) findViewById(R.id.Callos);
-        CheckBox chk3 = (CheckBox) findViewById(R.id.Cocido);
+        CheckBox chk2 = (CheckBox) findViewById(R.id.checkb2);
+        CheckBox chk3 = (CheckBox) findViewById(R.id.checkb3);
 
         if (chk2.isChecked() && chk3.isChecked ()) {
             score=score+1;
@@ -145,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tv = (TextView) findViewById(R.id.display_result);
         tv.setText(String.valueOf(score));
-        Button button = (Button) findViewById(R.id.button);
+        Button button = (Button) findViewById(R.id.submitButton);
         button.setClickable(false);
         if (score <=3) {
             //show toast
@@ -183,9 +182,10 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tv = (TextView) findViewById(R.id.display_result);
         tv.setText(String.valueOf(score));
-        Button button = (Button) findViewById(R.id.button);
+        Button button = (Button) findViewById(R.id.submitButton);
         button.setClickable(true);
 
     }
 
 }
+
