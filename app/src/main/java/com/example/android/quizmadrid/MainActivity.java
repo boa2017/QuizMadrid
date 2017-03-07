@@ -1,6 +1,5 @@
 package com.example.android.quizmadrid;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,7 +17,7 @@ import static com.example.android.quizmadrid.R.id.webView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int score = 0;
+    int score = 0;
     private WebView myWebView;
 
     @Override
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void secondQuestion() {
-        RadioButton rightAnswer1 = (RadioButton) findViewById(R.id.radioButton2);
+        RadioButton rightAnswer1 = (RadioButton) findViewById(R.id.radioButton7);
         if (rightAnswer1.isChecked()) {
             score = score + 1;
 
@@ -161,10 +160,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void resetScore (View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
         score= 0;
+
+        CheckBox checkb1 = (CheckBox) findViewById(R.id.checkb1);
+        checkb1.setChecked(false);
+        CheckBox checkb2 = (CheckBox) findViewById(R.id.checkb2);
+        checkb2.setChecked(false);
+        CheckBox checkb3 = (CheckBox) findViewById(R.id.checkb3);
+        checkb3.setChecked(false);
+        CheckBox checkb4 = (CheckBox) findViewById(R.id.checkb4);
+        checkb4.setChecked(false);
+
+        RadioButton radioButton1 = (RadioButton) findViewById(R.id.radioButton1);
+        radioButton1.setChecked(false);
+
+        RadioButton radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
+        radioButton2.setChecked(false);
+
+        RadioButton radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
+        radioButton3.setChecked(false);
+
+        RadioButton radioButton4 = (RadioButton) findViewById(R.id.radioButton4);
+        radioButton4.setChecked(false);
+
+        RadioButton radioButton5 = (RadioButton) findViewById(R.id.radioButton5);
+        radioButton5.setChecked(false);
+
+        RadioButton radioButton6 = (RadioButton) findViewById(R.id.radioButton6);
+        radioButton6.setChecked(false);
+
+        RadioButton radioButton7 = (RadioButton) findViewById(R.id.radioButton7);
+        radioButton7.setChecked(false);
+
+        RadioButton yes = (RadioButton) findViewById(R.id.yes);
+        yes.setChecked(false);
+
+        RadioButton no = (RadioButton) findViewById(R.id.no);
+        no.setChecked(false);
 
         EditText et1=(EditText) findViewById(R.id.editableAnswer1);
         et1.setText("");
@@ -178,14 +210,9 @@ public class MainActivity extends AppCompatActivity {
         ImageView myImageView2= (ImageView) findViewById(R.id.wrong);
         myImageView2.setVisibility(View.GONE);
 
-
-
         TextView tv = (TextView) findViewById(R.id.display_result);
         tv.setText(String.valueOf(score));
         Button button = (Button) findViewById(R.id.submitButton);
         button.setClickable(true);
-
     }
-
 }
-

@@ -40,16 +40,17 @@
                     android:text="@string/Answer1_a" />
 
                 <RadioButton
+                    android:id="@+id/radioButton2"
                     style="@style/RadioStyle"
-                    android:text="@string/Answer1_b"
-
-                    />
+                    android:text="@string/Answer1_b"   />
 
                 <RadioButton
+                    android:id="@+id/radioButton3"
                     style="@style/RadioStyle"
                     android:text="@string/Answer1_c" />
 
                 <RadioButton
+                    android:id="@+id/radioButton4"
                     style="@style/RadioStyle"
                     android:text="@string/Answer1_d" />
 
@@ -65,17 +66,19 @@
                 android:orientation="vertical">
 
                 <RadioButton
+                    android:id="@+id/radioButton5"
                     style="@style/RadioStyle"
                     android:text="@string/Answer2_a" />
 
                 <RadioButton
+                    android:id="@+id/radioButton6"
                     style="@style/RadioStyle"
                     android:text="@string/Answer2_b"
 
                     />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/radioButton7"
                     style="@style/RadioStyle"
                     android:text="@string/Answer2_c" />
             </RadioGroup>
@@ -96,7 +99,8 @@
             <EditText
                 android:id="@+id/editableAnswer2"
                 style="@style/EditableStyle"
-                android:hint="@string/Question4Hint" />
+                android:hint="@string/Question4Hint"
+                android:inputType="number"/>
 
             <TextView
                 style="@style/QuestionStyle"
@@ -105,7 +109,8 @@
             <EditText
                 android:id="@+id/editableAnswer3"
                 style="@style/EditableStyle"
-                android:hint="@string/Question5Hint" />
+                android:hint="@string/Question5Hint"
+                android:inputType="number"/>
 
             <TextView
                 style="@style/QuestionStyle"
