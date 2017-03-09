@@ -200,6 +200,7 @@
                     android:layout_gravity="center"
                     android:text="" />
 
+
                 <TextView
                     android:id="@+id/Bonus"
                     style="@style/Bonus"

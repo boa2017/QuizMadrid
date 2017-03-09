@@ -1,7 +1,12 @@
 package com.example.android.quizmadrid;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ShareActionProvider;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -19,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     int score = 0;
     private WebView myWebView;
+    private ShareActionProvider mShareActionProvider;
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -30,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         /**Loads old Points*/
         if (savedInstanceState != null) {
             score = savedInstanceState.getInt("SCORE");
@@ -41,6 +46,27 @@ public class MainActivity extends AppCompatActivity {
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.loadData(playVideo, "text/html", "utf-8");
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate menu resource file.
+        getMenuInflater().inflate(R.menu.filename, menu);
+        // Locate MenuItem with ShareActionProvider
+        MenuItem item = menu.findItem(R.id.menu_item_share);
+        // Fetch and store ShareActionProvider
+        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+        // Set share Intent.
+        mShareActionProvider.setShareIntent(createShareIntent());
+        return true;
+    }
+
+    // Create and return the Share Intent
+    private Intent createShareIntent() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "http://google.com");
+        return shareIntent;
     }
 
     public void firstQuestion() {
@@ -215,4 +241,5 @@ public class MainActivity extends AppCompatActivity {
         Button button = (Button) findViewById(R.id.submitButton);
         button.setClickable(true);
     }
+
 }
