@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         WebView myWebView = (WebView) this.findViewById(webView);
-        String playVideo= "<html><body><iframe class=\"youtube-player\" type=\"text/html\" width=\"400\" height=\"360\" src=\"https://www.youtube.com/embed/XMjpaWnXJoM\" frameborder=\"0\"></body></html>";
+        String playVideo = "<html><body><iframe class=\"youtube-player\" type=\"text/html\" width=\"400\" height=\"360\" src=\"https://www.youtube.com/embed/XMjpaWnXJoM\" frameborder=\"0\"></body></html>";
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.loadData(playVideo, "text/html", "utf-8");
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private Intent createShareIntent() {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "http://google.com");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "This is the final version of my Madrid Quiz App");
         return shareIntent;
     }
 
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
     public void secondQuestion() {
         RadioButton rightAnswer1 = (RadioButton) findViewById(R.id.radioButton7);
         if (rightAnswer1.isChecked()) {
@@ -91,10 +92,11 @@ public class MainActivity extends AppCompatActivity {
         EditText edt = (EditText) findViewById(R.id.editableAnswer1);
         String editableAnswer1 = edt.getText().toString();
         //compare answersº  º
-        if(editableAnswer1.equalsIgnoreCase("The Charge of the Mamelukes")){
-            score= score+1 ;
+        if (editableAnswer1.equalsIgnoreCase(getString(R.string.Mamelukes))) {
+            score = score + 1;
         }
     }
+
     public void fourthQuestion() {
 
         //get answer form edit text
@@ -102,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
         EditText edt = (EditText) findViewById(R.id.editableAnswer2);
         String editableAnswer2 = edt.getText().toString();
         //compare answers
-        if(editableAnswer2.equalsIgnoreCase("1808")){
-            score= score+1 ;
+        if (editableAnswer2.equalsIgnoreCase("1808")) {
+            score = score + 1;
         }
     }
 
@@ -114,31 +116,34 @@ public class MainActivity extends AppCompatActivity {
         EditText edt = (EditText) findViewById(R.id.editableAnswer3);
         String editableAnswer3 = edt.getText().toString();
         //compare answers
-        if(editableAnswer3.equalsIgnoreCase("1919")){
-            score= score+1 ;
+        if (editableAnswer3.equalsIgnoreCase("1919")) {
+            score = score + 1;
         }
     }
 
     public void sixthQuestion() {
         //choose two answers
+        CheckBox chk1 = (CheckBox) findViewById(R.id.checkb1);
         CheckBox chk2 = (CheckBox) findViewById(R.id.checkb2);
         CheckBox chk3 = (CheckBox) findViewById(R.id.checkb3);
+        CheckBox chk4 = (CheckBox) findViewById(R.id.checkb4);
 
-        if (chk2.isChecked() && chk3.isChecked ()) {
-            score=score+1;
+        if ((chk2.isChecked() && chk3.isChecked()) && (!chk1.isChecked() && !chk4.isChecked())) {
+            score = score + 1;
         }
+
     }
 
     public void tenthQuestionRight(View view) {
         //show a picture depending on user's answer
-        RadioButton answerYes= (RadioButton) findViewById(R.id.yes);
-        ImageView myImageView1= (ImageView) findViewById(R.id.right);
-        ImageView myImageView2= (ImageView) findViewById(R.id.wrong);
+        RadioButton answerYes = (RadioButton) findViewById(R.id.yes);
+        ImageView myImageView1 = (ImageView) findViewById(R.id.right);
+        ImageView myImageView2 = (ImageView) findViewById(R.id.wrong);
         if (answerYes.isChecked()) {
             myImageView1.setVisibility(View.VISIBLE);
             myImageView2.setVisibility(View.GONE);
 
-        }else{
+        } else {
             myImageView1.setVisibility(View.GONE);
         }
 
@@ -147,19 +152,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void tenthQuestionWrong(View view) {
         //show a picture depending on user's answer
-        RadioButton answerNo= (RadioButton) findViewById(R.id.no);
-        ImageView myImageView1= (ImageView) findViewById(R.id.right);
-        ImageView myImageView2= (ImageView) findViewById(R.id.wrong);
+        RadioButton answerNo = (RadioButton) findViewById(R.id.no);
+        ImageView myImageView1 = (ImageView) findViewById(R.id.right);
+        ImageView myImageView2 = (ImageView) findViewById(R.id.wrong);
         if (answerNo.isChecked()) {
             myImageView2.setVisibility(View.VISIBLE);
             myImageView1.setVisibility(View.GONE);
-        }else{
+        } else {
             myImageView2.setVisibility(View.GONE);
         }
 
     }
 
-    public void getScore (View view) {
+    public void getScore(View view) {
         firstQuestion();
         secondQuestion();
         thirdQuestion();
@@ -171,22 +176,22 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(String.valueOf(score));
         Button button = (Button) findViewById(R.id.submitButton);
         button.setClickable(false);
-        if (score <=3) {
+        if (score <= 3) {
             //show toast
             Toast.makeText(getApplicationContext(), "Need to improve", Toast.LENGTH_LONG).show();
         }
-        if (score >=4 && score <=5) {
+        if (score >= 4 && score <= 5) {
             //show toast
             Toast.makeText(getApplicationContext(), "Not so bad", Toast.LENGTH_LONG).show();
         }
-        if (score ==6) {
+        if (score == 6) {
             //show toast
             Toast.makeText(getApplicationContext(), "Well done", Toast.LENGTH_LONG).show();
         }
     }
 
-    public void resetScore (View view) {
-        score= 0;
+    public void resetScore(View view) {
+        score = 0;
 
         CheckBox checkb1 = (CheckBox) findViewById(R.id.checkb1);
         checkb1.setChecked(false);
@@ -224,16 +229,16 @@ public class MainActivity extends AppCompatActivity {
         RadioButton no = (RadioButton) findViewById(R.id.no);
         no.setChecked(false);
 
-        EditText et1=(EditText) findViewById(R.id.editableAnswer1);
+        EditText et1 = (EditText) findViewById(R.id.editableAnswer1);
         et1.setText("");
-        EditText et2=(EditText) findViewById(R.id.editableAnswer2);
+        EditText et2 = (EditText) findViewById(R.id.editableAnswer2);
         et2.setText("");
-        EditText et3=(EditText) findViewById(R.id.editableAnswer3);
+        EditText et3 = (EditText) findViewById(R.id.editableAnswer3);
         et3.setText("");
 
-        ImageView myImageView1= (ImageView) findViewById(R.id.right);
+        ImageView myImageView1 = (ImageView) findViewById(R.id.right);
         myImageView1.setVisibility(View.GONE);
-        ImageView myImageView2= (ImageView) findViewById(R.id.wrong);
+        ImageView myImageView2 = (ImageView) findViewById(R.id.wrong);
         myImageView2.setVisibility(View.GONE);
 
         TextView tv = (TextView) findViewById(R.id.display_result);
